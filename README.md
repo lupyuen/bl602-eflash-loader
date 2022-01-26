@@ -1,10 +1,14 @@
 # BL602 EFlash Loader decompiled with Ghidra
 
-Decompiled with Ghidra from...
+BL602 EFlash Loader decompiled with Ghidra from...
 
 https://github.com/bouffalolab/bl_iot_sdk/blob/master/flash_tool/chips/bl602/eflash_loader/eflash_loader.elf
 
 (Dated 17 Jan 2022)
+
+More about BL602 EFlash Loader...
+
+https://lupyuen.github.io/articles/flash
 
 Follow the updates on Twitter...
 

@@ -1,5 +1,9 @@
 # BL602 EFlash Loader decompiled with Ghidra
 
+Follow the Reverse Engineering updates on Twitter...
+
+https://twitter.com/MisterTechBlog/status/1486187004232867842
+
 BL602 EFlash Loader decompiled with Ghidra from...
 
 https://github.com/bouffalolab/bl_iot_sdk/blob/master/flash_tool/chips/bl602/eflash_loader/eflash_loader.elf
@@ -13,7 +17,3 @@ Decompiled C source file...
 More about BL602 EFlash Loader...
 
 https://lupyuen.github.io/articles/flash
-
-Follow the updates on Twitter...
-
-https://twitter.com/MisterTechBlog/status/1486187004232867842

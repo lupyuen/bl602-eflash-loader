@@ -20,9 +20,9 @@ https://lupyuen.github.io/articles/flash
 
 # Flashing Commands
 
-Here are the Flash Commands supported by the BL602 EFlash Loader, as decoded by Ghidra from `eflash_loader_cmds`...
+Here are the Flashing Commands supported by the BL602 EFlash Loader, as decoded by Ghidra from `eflash_loader_cmds`...
 
-| ID | ASCII | Flash Command
+| ID | ASCII | Flashing Command
 | :--: | :--: | --- 
 | 10 | LF | bflb_eflash_loader_cmd_get_bootinfo
 | 21 | ! | bflb_eflash_loader_cmd_reset

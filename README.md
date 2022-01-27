@@ -48,3 +48,28 @@ Here are the 24 Flashing Commands supported by the BL602 EFlash Loader, as decod
 | 37 | 7 | [bflb_eflash_loader_cmd_read_status_register](https://github.com/lupyuen/bl602-eflash-loader/blob/main/eflash_loader.c#L3339-L3367)
 | 38 | 8 | [bflb_eflash_loader_cmd_write_status_register](https://github.com/lupyuen/bl602-eflash-loader/blob/main/eflash_loader.c#L3306-L3335)
 | 33 | 3 | [bflb_eflash_loader_cmd_flash_boot](https://github.com/lupyuen/bl602-eflash-loader/blob/main/eflash_loader.c#L3198-L3209)
+
+# Flashing States
+
+BL602 Firmware Flasher works like a State Machine. Each Flashing State triggers a Flashing Command. Here are the Flashing States defined in [`BLOpenFlasher/utils/util_program.go`](https://github.com/bouffalolab/BLOpenFlasher/blob/main/utils/util_program.go#L195-L245)...
+
+| State | ID | On Success | On Error |
+| :--- | :--- | :--- | :--- |
+| [ConfigReset](https://github.com/bouffalolab/BLOpenFlasher/blob/main/utils/util_program.go#L118-L133) | | CmdReset | ErrorLoaderBin
+| [CmdReset](https://github.com/bouffalolab/BLOpenFlasher/blob/main/utils/util_program.go#L135-L193) | | CmdShakeHand | ErrorShakeHand
+| [CmdShakeHand](https://github.com/bouffalolab/BLOpenFlasher/blob/main/utils/util_program.go#L195-L206) | 55 | CmdBootInfo | CmdReset
+| [CmdBootInfo](https://github.com/bouffalolab/BLOpenFlasher/blob/main/utils/util_program.go#L208-L215) | 10 | CmdBootHeader | CmdReset
+| [CmdBootHeader](https://github.com/bouffalolab/BLOpenFlasher/blob/main/utils/util_program.go#L217-L230) | 11 | CmdSegHeader | ConfigReset
+| [CmdSegHeader](https://github.com/bouffalolab/BLOpenFlasher/blob/main/utils/util_program.go#L232-L245) | 17 | CmdSegData | ConfigReset
+| [CmdSegData](https://github.com/bouffalolab/BLOpenFlasher/blob/main/utils/util_program.go#L247-L264) | 18 | CmdCheckImage | ConfigReset
+| [CmdCheckImage](https://github.com/bouffalolab/BLOpenFlasher/blob/main/utils/util_program.go#L266-L274) | 19 | CmdRunImage | ConfigReset
+| [CmdRunImage](https://github.com/bouffalolab/BLOpenFlasher/blob/main/utils/util_program.go#L276-L284) | 1a | CmdReshake | ConfigReset
+| [CmdReshake](https://github.com/bouffalolab/BLOpenFlasher/blob/main/utils/util_program.go#L286-L300) | 55 | CmdLoadFile | ConfigReset
+| [CmdLoadFile](https://github.com/bouffalolab/BLOpenFlasher/blob/main/utils/util_program.go#L302-L344) |  | CmdEraseFlash^ | ErrorOpenFile^
+| [CmdEraseFlash](https://github.com/bouffalolab/BLOpenFlasher/blob/main/utils/util_program.go#L353-L378) | 30 | CmdProgramFlash | ErrorEraseFlash
+| [CmdProgramFlash](https://github.com/bouffalolab/BLOpenFlasher/blob/main/utils/util_program.go#L380-L408) | 31 | CmdProgramOK^ | ErrorProgramFLash
+| [CmdProgramOK](https://github.com/bouffalolab/BLOpenFlasher/blob/main/utils/util_program.go#L410-L418) | 3a | CmdSha256 | ErrorProgramOK
+| [CmdSha256](https://github.com/bouffalolab/BLOpenFlasher/blob/main/utils/util_program.go#L420-L449) | 3d | CmdLoadFile | ErrorVerifySha256^
+| [CmdProgramFinish](https://github.com/bouffalolab/BLOpenFlasher/blob/main/utils/util_program.go#L451-L468) | 55 | CmdProgramFinish | CmdProgramFinish
+
+^ denotes multiple states

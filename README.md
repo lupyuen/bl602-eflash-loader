@@ -51,7 +51,7 @@ Here are the 24 Flashing Commands supported by the BL602 EFlash Loader, as decod
 
 # Flashing States
 
-BL602 Firmware Flasher works like a State Machine. Each Flashing State triggers a Flashing Command. Here are the Flashing States defined in [`BLOpenFlasher/utils/util_program.go`](https://github.com/bouffalolab/BLOpenFlasher/blob/main/utils/util_program.go#L195-L245)...
+BL602 Firmware Flasher works like a State Machine. Each Flashing State triggers a Flashing Command. Here are the Flashing States defined in [`BLOpenFlasher/utils/util_program.go`](https://github.com/bouffalolab/BLOpenFlasher/blob/main/utils/util_program.go)...
 
 | State | ID | On Success | On Error |
 | :--- | :--- | :--- | :--- |

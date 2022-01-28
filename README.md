@@ -2,21 +2,21 @@
 
 Follow the Reverse Engineering updates on Twitter...
 
-https://twitter.com/MisterTechBlog/status/1486187004232867842
+-   [twitter.com/MisterTechBlog](https://twitter.com/MisterTechBlog/status/1486187004232867842)
 
 BL602 EFlash Loader decompiled with Ghidra from...
 
-https://github.com/bouffalolab/bl_iot_sdk/blob/master/flash_tool/chips/bl602/eflash_loader/eflash_loader.elf
+-   [bl_iot_sdk/flash_tool/chips/bl602/eflash_loader/eflash_loader.elf](https://github.com/bouffalolab/bl_iot_sdk/blob/master/flash_tool/chips/bl602/eflash_loader/eflash_loader.elf)
 
-(Dated 17 Jan 2022)
+    (Dated 17 Jan 2022)
 
-Decompiled C source file...
+Below is the decompiled C source file...
 
-[`eflash_loader.c`](eflash_loader.c)
+-   [`eflash_loader.c`](eflash_loader.c)
 
 More about BL602 EFlash Loader...
 
-https://lupyuen.github.io/articles/flash
+-   ["Flashing Firmware to PineCone BL602"](https://lupyuen.github.io/articles/flash)
 
 # Flashing Commands
 

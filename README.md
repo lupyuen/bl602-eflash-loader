@@ -92,11 +92,11 @@ BL602 Firmware Flasher works like a State Machine. Each Flashing State triggers 
 
 ^ denotes multiple states
 
-The Flashing States are also documented in the [BL602 ISP Protocol](https://github.com/bouffalolab/bl_docs/tree/main/BL602_ISP/en).
+The Flashing Process is documented in the [BL602 ISP Protocol](https://github.com/bouffalolab/bl_docs/tree/main/BL602_ISP/en).
 
 # Matching Flashing States and Commands
 
-By matching the Flashing States and the Flashing Commands above, we identify 6 commands that we can explore...
+By matching the Flashing States and the Flashing Commands above, we identify 6 commands that we can probe further...
 
 | ID | ASCII | Flashing Command
 | :--: | :--: | --- 
@@ -106,4 +106,4 @@ By matching the Flashing States and the Flashing Commands above, we identify 6 c
 | 3A | : | [bflb_eflash_loader_cmd_write_flash_check](https://github.com/lupyuen/bl602-eflash-loader/blob/main/eflash_loader.c#L3001-L3008)
 | 3D | = | [bflb_eflash_loader_cmd_readSha_flash](https://github.com/lupyuen/bl602-eflash-loader/blob/main/eflash_loader.c#L3491-L3544)
 
-(`3C` Chip Erase isn't used while flashing BL602)
+(`3C` Chip Erase isn't used while flashing BL602, according to BLOpenFlasher)

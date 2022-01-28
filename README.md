@@ -28,14 +28,14 @@ Here are the 24 Flashing Commands supported by the BL602 EFlash Loader, as decod
 | 21 | ! | [bflb_eflash_loader_cmd_reset](https://github.com/lupyuen/bl602-eflash-loader/blob/main/eflash_loader.c#L2939-L2950)
 | 30 | 0 | [bflb_eflash_loader_cmd_erase_flash](https://github.com/lupyuen/bl602-eflash-loader/blob/main/eflash_loader.c#L3133-L3194)
 | 31 | 1 | [bflb_eflash_loader_cmd_write_flash](https://github.com/lupyuen/bl602-eflash-loader/blob/main/eflash_loader.c#L3258-L3300)
-| 3f | ? | [bflb_eflash_loader_cmd_write_flash_with_decompress](https://github.com/lupyuen/bl602-eflash-loader/blob/main/eflash_loader.c#L3693-L3798)
+| 3F | ? | [bflb_eflash_loader_cmd_write_flash_with_decompress](https://github.com/lupyuen/bl602-eflash-loader/blob/main/eflash_loader.c#L3693-L3798)
 | 32 | 2 | [bflb_eflash_loader_cmd_read_flash](https://github.com/lupyuen/bl602-eflash-loader/blob/main/eflash_loader.c#L3374-L3427)
 | 34 | 4 | [bflb_eflash_loader_cmd_xip_read_flash](https://github.com/lupyuen/bl602-eflash-loader/blob/main/eflash_loader.c#L3434-L3487)
-| 3a | : | [bflb_eflash_loader_cmd_write_flash_check](https://github.com/lupyuen/bl602-eflash-loader/blob/main/eflash_loader.c#L3001-L3008)
-| 3b | ; | [bflb_eflash_loader_cmd_set_flash_para](https://github.com/lupyuen/bl602-eflash-loader/blob/main/eflash_loader.c#L3635-L3689)
-| 3c | < | [bflb_eflash_loader_cmd_flash_chip_erase](https://github.com/lupyuen/bl602-eflash-loader/blob/main/eflash_loader.c#L3113-L3129)
-| 3d | = | [bflb_eflash_loader_cmd_readSha_flash](https://github.com/lupyuen/bl602-eflash-loader/blob/main/eflash_loader.c#L3491-L3544)
-| 3e | > | [bflb_eflash_loader_cmd_xip_readSha_flash](https://github.com/lupyuen/bl602-eflash-loader/blob/main/eflash_loader.c#L3548-L3601)
+| 3A | : | [bflb_eflash_loader_cmd_write_flash_check](https://github.com/lupyuen/bl602-eflash-loader/blob/main/eflash_loader.c#L3001-L3008)
+| 3B | ; | [bflb_eflash_loader_cmd_set_flash_para](https://github.com/lupyuen/bl602-eflash-loader/blob/main/eflash_loader.c#L3635-L3689)
+| 3C | < | [bflb_eflash_loader_cmd_flash_chip_erase](https://github.com/lupyuen/bl602-eflash-loader/blob/main/eflash_loader.c#L3113-L3129)
+| 3D | = | [bflb_eflash_loader_cmd_readSha_flash](https://github.com/lupyuen/bl602-eflash-loader/blob/main/eflash_loader.c#L3491-L3544)
+| 3E | > | [bflb_eflash_loader_cmd_xip_readSha_flash](https://github.com/lupyuen/bl602-eflash-loader/blob/main/eflash_loader.c#L3548-L3601)
 | 40 | @ | [bflb_eflash_loader_cmd_write_efuse](https://github.com/lupyuen/bl602-eflash-loader/blob/main/eflash_loader.c#L3065-L3109)
 | 41 | A | [bflb_eflash_loader_cmd_read_efuse](https://github.com/lupyuen/bl602-eflash-loader/blob/main/eflash_loader.c#L3014-L3058)
 | 42 | B | [bflb_eflash_loader_cmd_read_mac_addr](https://github.com/lupyuen/bl602-eflash-loader/blob/main/eflash_loader.c#L3605-L3629)
@@ -51,12 +51,12 @@ Here are the 24 Flashing Commands supported by the BL602 EFlash Loader, as decod
 
 6 of the above Flashing Commands are documented in the [BL602 ISP Protocol](https://github.com/bouffalolab/bl_docs/tree/main/BL602_ISP/en)...
 
--   3C: Chip Erase
--   30: Flash Erase
--   31: Flash Program
--   3A: Flash Program Check
--   32: Flash Read
--   3D: SHA256 Read
+-   `3C` - Chip Erase
+-   `30` - Flash Erase
+-   `31` - Flash Program
+-   `3A` - Flash Program Check
+-   `32` - Flash Read
+-   `3D` - SHA256 Read
 
 The other 18 Flashing Commands are undocumented.
 
@@ -74,13 +74,13 @@ BL602 Firmware Flasher works like a State Machine. Each Flashing State triggers 
 | [CmdSegHeader](https://github.com/bouffalolab/BLOpenFlasher/blob/main/utils/util_program.go#L232-L245) | 17 | CmdSegData | ConfigReset
 | [CmdSegData](https://github.com/bouffalolab/BLOpenFlasher/blob/main/utils/util_program.go#L247-L264) | 18 | CmdCheckImage | ConfigReset
 | [CmdCheckImage](https://github.com/bouffalolab/BLOpenFlasher/blob/main/utils/util_program.go#L266-L274) | 19 | CmdRunImage | ConfigReset
-| [CmdRunImage](https://github.com/bouffalolab/BLOpenFlasher/blob/main/utils/util_program.go#L276-L284) | 1a | CmdReshake | ConfigReset
+| [CmdRunImage](https://github.com/bouffalolab/BLOpenFlasher/blob/main/utils/util_program.go#L276-L284) | 1A | CmdReshake | ConfigReset
 | [CmdReshake](https://github.com/bouffalolab/BLOpenFlasher/blob/main/utils/util_program.go#L286-L300) | 55 | CmdLoadFile | ConfigReset
 | [CmdLoadFile](https://github.com/bouffalolab/BLOpenFlasher/blob/main/utils/util_program.go#L302-L344) |  | CmdEraseFlash^ | ErrorOpenFile^
 | [CmdEraseFlash](https://github.com/bouffalolab/BLOpenFlasher/blob/main/utils/util_program.go#L353-L378) | 30 | CmdProgramFlash | ErrorEraseFlash
 | [CmdProgramFlash](https://github.com/bouffalolab/BLOpenFlasher/blob/main/utils/util_program.go#L380-L408) | 31 | CmdProgramOK^ | ErrorProgramFLash
-| [CmdProgramOK](https://github.com/bouffalolab/BLOpenFlasher/blob/main/utils/util_program.go#L410-L418) | 3a | CmdSha256 | ErrorProgramOK
-| [CmdSha256](https://github.com/bouffalolab/BLOpenFlasher/blob/main/utils/util_program.go#L420-L449) | 3d | CmdLoadFile | ErrorVerifySha256^
+| [CmdProgramOK](https://github.com/bouffalolab/BLOpenFlasher/blob/main/utils/util_program.go#L410-L418) | 3A | CmdSha256 | ErrorProgramOK
+| [CmdSha256](https://github.com/bouffalolab/BLOpenFlasher/blob/main/utils/util_program.go#L420-L449) | 3D | CmdLoadFile | ErrorVerifySha256^
 | [CmdProgramFinish](https://github.com/bouffalolab/BLOpenFlasher/blob/main/utils/util_program.go#L451-L468) | 55 | CmdProgramFinish | CmdProgramFinish
 
 ^ denotes multiple states

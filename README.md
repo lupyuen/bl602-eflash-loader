@@ -96,7 +96,7 @@ The Flashing Process is documented in the [BL602 ISP Protocol](https://github.co
 
 # Matching Flashing States and Commands
 
-By matching the Flashing States and the Flashing Commands above, we identify 6 commands that we can probe further...
+By matching the Flashing States and the Flashing Commands above, we identify 5 commands that we can probe further...
 
 | ID | ASCII | Flashing Command
 | :--: | :--: | --- 
@@ -106,4 +106,4 @@ By matching the Flashing States and the Flashing Commands above, we identify 6 c
 | 3A | : | Flash Program Check<br>[bflb_eflash_loader_cmd_write_flash_check](https://github.com/lupyuen/bl602-eflash-loader/blob/main/eflash_loader.c#L3001-L3008)
 | 3D | = | SHA256 Read<br>[bflb_eflash_loader_cmd_readSha_flash](https://github.com/lupyuen/bl602-eflash-loader/blob/main/eflash_loader.c#L3491-L3544)
 
-(`3C` Chip Erase isn't used while flashing BL602, according to BLOpenFlasher)
+(`3C` Chip Erase and `32` Flash Read aren't used while flashing BL602, according to BLOpenFlasher)

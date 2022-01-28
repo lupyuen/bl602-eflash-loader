@@ -100,10 +100,10 @@ By matching the Flashing States and the Flashing Commands above, we identify 6 c
 
 | ID | ASCII | Flashing Command
 | :--: | :--: | --- 
-| 10 | LF | [bflb_eflash_loader_cmd_get_bootinfo](https://github.com/lupyuen/bl602-eflash-loader/blob/main/eflash_loader.c#L2867-L2879)
-| 30 | 0 | [bflb_eflash_loader_cmd_erase_flash](https://github.com/lupyuen/bl602-eflash-loader/blob/main/eflash_loader.c#L3133-L3194)
-| 31 | 1 | [bflb_eflash_loader_cmd_write_flash](https://github.com/lupyuen/bl602-eflash-loader/blob/main/eflash_loader.c#L3258-L3300)
-| 3A | : | [bflb_eflash_loader_cmd_write_flash_check](https://github.com/lupyuen/bl602-eflash-loader/blob/main/eflash_loader.c#L3001-L3008)
-| 3D | = | [bflb_eflash_loader_cmd_readSha_flash](https://github.com/lupyuen/bl602-eflash-loader/blob/main/eflash_loader.c#L3491-L3544)
+| 10 | LF | Get Boot Info<br>[bflb_eflash_loader_cmd_get_bootinfo](https://github.com/lupyuen/bl602-eflash-loader/blob/main/eflash_loader.c#L2867-L2879)
+| 30 | 0 | Flash Erase<br>[bflb_eflash_loader_cmd_erase_flash](https://github.com/lupyuen/bl602-eflash-loader/blob/main/eflash_loader.c#L3133-L3194)
+| 31 | 1 | Flash Program<br>[bflb_eflash_loader_cmd_write_flash](https://github.com/lupyuen/bl602-eflash-loader/blob/main/eflash_loader.c#L3258-L3300)
+| 3A | : | Flash Program Check<br>[bflb_eflash_loader_cmd_write_flash_check](https://github.com/lupyuen/bl602-eflash-loader/blob/main/eflash_loader.c#L3001-L3008)
+| 3D | = | SHA256 Read<br>[bflb_eflash_loader_cmd_readSha_flash](https://github.com/lupyuen/bl602-eflash-loader/blob/main/eflash_loader.c#L3491-L3544)
 
 (`3C` Chip Erase isn't used while flashing BL602, according to BLOpenFlasher)

@@ -1,0 +1,34 @@
+{
+	"files": [
+		{
+			"path": "eflash_loader.c",
+			"bookmarks": [
+				{
+					"line": 3257,
+					"column": 27,
+					"label": ""
+				},
+				{
+					"line": 3282,
+					"column": 28,
+					"label": ""
+				},
+				{
+					"line": 4900,
+					"column": 19,
+					"label": ""
+				},
+				{
+					"line": 4906,
+					"column": 19,
+					"label": ""
+				},
+				{
+					"line": 10730,
+					"column": 8,
+					"label": ""
+				}
+			]
+		}
+	]
+}

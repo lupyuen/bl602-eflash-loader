@@ -58,7 +58,7 @@ Here are the 24 Flashing Commands supported by the BL602 EFlash Loader, as decod
 -   32: Flash Read
 -   3D: SHA256 Read
 
-The other 17 Flashing Commands are undocumented.
+The other 18 Flashing Commands are undocumented.
 
 # Flashing States
 

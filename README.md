@@ -49,6 +49,17 @@ Here are the 24 Flashing Commands supported by the BL602 EFlash Loader, as decod
 | 38 | 8 | [bflb_eflash_loader_cmd_write_status_register](https://github.com/lupyuen/bl602-eflash-loader/blob/main/eflash_loader.c#L3306-L3335)
 | 33 | 3 | [bflb_eflash_loader_cmd_flash_boot](https://github.com/lupyuen/bl602-eflash-loader/blob/main/eflash_loader.c#L3198-L3209)
 
+6 of the above Flashing Commands are documented in the [BL602 ISP Protocol](https://github.com/bouffalolab/bl_docs/tree/main/BL602_ISP/en)...
+
+-   3C: Chip Erase
+-   30: Flash Erase
+-   31: Flash Program
+-   3A: Flash Program Check
+-   32: Flash Read
+-   3D: SHA256 Read
+
+The other 17 Flashing Commands are undocumented.
+
 # Flashing States
 
 BL602 Firmware Flasher works like a State Machine. Each Flashing State triggers a Flashing Command. Here are the Flashing States and Flashing Command IDs derived from [`BLOpenFlasher/utils/util_program.go`](https://github.com/bouffalolab/BLOpenFlasher/blob/main/utils/util_program.go)...
@@ -73,3 +84,5 @@ BL602 Firmware Flasher works like a State Machine. Each Flashing State triggers 
 | [CmdProgramFinish](https://github.com/bouffalolab/BLOpenFlasher/blob/main/utils/util_program.go#L451-L468) | 55 | CmdProgramFinish | CmdProgramFinish
 
 ^ denotes multiple states
+
+The Flashing States are also documented in the [BL602 ISP Protocol](https://github.com/bouffalolab/bl_docs/tree/main/BL602_ISP/en).

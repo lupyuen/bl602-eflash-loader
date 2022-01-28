@@ -6,7 +6,7 @@ Follow the Reverse Engineering updates on Twitter...
 
 BL602 EFlash Loader is the program that runs on BL602 to flash all firmware to its Embedded Flash. The ELF was uploaded recently (no source available, according to GitHub Code Search).
 
-We decompiled with Ghidra this BL602 EFlash Loader...
+We decompiled with [Ghidra](https://ghidra-sre.org/) this BL602 EFlash Loader...
 
 -   [bl_iot_sdk/flash_tool/chips/bl602/eflash_loader/eflash_loader.elf](https://github.com/bouffalolab/bl_iot_sdk/blob/master/flash_tool/chips/bl602/eflash_loader/eflash_loader.elf)
 
@@ -14,11 +14,15 @@ We decompiled with Ghidra this BL602 EFlash Loader...
 
 Below is the decompiled C source file...
 
--   [`eflash_loader.c`](eflash_loader.c)
+-   [eflash_loader.c](eflash_loader.c)
 
 More about BL602 EFlash Loader...
 
 -   ["Flashing Firmware to PineCone BL602"](https://lupyuen.github.io/articles/flash)
+
+More about Ghidra...
+
+-   ["Ghidra: Software reverse engineering suite of tools"](https://ghidra-sre.org/)
 
 # Flashing Commands
 

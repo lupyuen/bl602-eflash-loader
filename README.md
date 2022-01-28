@@ -55,8 +55,9 @@ Here are the 24 Flashing Commands supported by the BL602 EFlash Loader, as decod
 | 38 | 8 | [bflb_eflash_loader_cmd_write_status_register](https://github.com/lupyuen/bl602-eflash-loader/blob/main/eflash_loader.c#L3306-L3335)
 | 33 | 3 | [bflb_eflash_loader_cmd_flash_boot](https://github.com/lupyuen/bl602-eflash-loader/blob/main/eflash_loader.c#L3198-L3209)
 
-6 of the above Flashing Commands are documented in the [BL602 ISP Protocol](https://github.com/bouffalolab/bl_docs/tree/main/BL602_ISP/en)...
+7 of the above Flashing Commands are documented in the [BL602 ISP Protocol](https://github.com/bouffalolab/bl_docs/tree/main/BL602_ISP/en)...
 
+-   `10` - Get Boot Info
 -   `3C` - Chip Erase
 -   `30` - Flash Erase
 -   `31` - Flash Program
@@ -64,7 +65,7 @@ Here are the 24 Flashing Commands supported by the BL602 EFlash Loader, as decod
 -   `32` - Flash Read
 -   `3D` - SHA256 Read
 
-The other 18 Flashing Commands are undocumented.
+The other 17 Flashing Commands are undocumented.
 
 # Flashing States
 
@@ -92,3 +93,17 @@ BL602 Firmware Flasher works like a State Machine. Each Flashing State triggers 
 ^ denotes multiple states
 
 The Flashing States are also documented in the [BL602 ISP Protocol](https://github.com/bouffalolab/bl_docs/tree/main/BL602_ISP/en).
+
+# Matching Flashing States and Commands
+
+By matching the Flashing States and the Flashing Commands above, we identify 6 commands that we can explore...
+
+| ID | ASCII | Flashing Command
+| :--: | :--: | --- 
+| 10 | LF | [bflb_eflash_loader_cmd_get_bootinfo](https://github.com/lupyuen/bl602-eflash-loader/blob/main/eflash_loader.c#L2867-L2879)
+| 30 | 0 | [bflb_eflash_loader_cmd_erase_flash](https://github.com/lupyuen/bl602-eflash-loader/blob/main/eflash_loader.c#L3133-L3194)
+| 31 | 1 | [bflb_eflash_loader_cmd_write_flash](https://github.com/lupyuen/bl602-eflash-loader/blob/main/eflash_loader.c#L3258-L3300)
+| 3A | : | [bflb_eflash_loader_cmd_write_flash_check](https://github.com/lupyuen/bl602-eflash-loader/blob/main/eflash_loader.c#L3001-L3008)
+| 3D | = | [bflb_eflash_loader_cmd_readSha_flash](https://github.com/lupyuen/bl602-eflash-loader/blob/main/eflash_loader.c#L3491-L3544)
+
+(`3C` Chip Erase isn't used while flashing BL602)

@@ -1,8 +1,8 @@
 # BL602 EFlash Loader decompiled with Ghidra
 
-Follow the Reverse Engineering updates on Twitter...
+Read the article...
 
--   [twitter.com/MisterTechBlog](https://twitter.com/MisterTechBlog/status/1486187004232867842)
+-   ["BL602 EFlash Loader: Reverse Engineered with Ghidra"](https://lupyuen.github.io/articles/loader)
 
 BL602 EFlash Loader is the program that runs on BL602 to flash all firmware to its Embedded Flash. The ELF was uploaded recently (no source available, according to GitHub Code Search).
 
